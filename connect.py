@@ -1,6 +1,10 @@
+from charset_normalizer import from_path
+from numpy import source
 from tinydb import Query,TinyDB
 import pandas as pd
 from banco import Client
+import os
+import shutil
 
 import pdfkit
 
@@ -15,6 +19,7 @@ def insert (banco: Client):
         "complemento": banco.complemento,
         "bairro": banco.bairro,
         "cidade": banco.cidade,
+        "estado": banco.estado,
         "CEP": banco.CEP
     })
 
@@ -50,7 +55,13 @@ def query_data(codigo):
         return "Pode registrar"
 
 def download_pdf():
-    pdfkit.from_url("site para criar o pdf", "nome do pdf criado .pdf")
+    pdfkit.from_url("http://127.0.0.1:3000/teste", "site_teste6.pdf")
+    source = r'C:\Users\mayco\OneDrive\Área de Trabalho\Create pdf\site_teste6.pdf'
+    destination = r'C:\Users\mayco\OneDrive\Área de Trabalho\Create pdf\static\pdf\site_teste6.pdf'
+    shutil.move(source,destination)
+    
+
+   
 
 
 

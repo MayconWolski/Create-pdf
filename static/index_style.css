@@ -64,6 +64,10 @@ main {
     
 }
 
+.table{
+    text-align: center
+}
+
 .teste{
     background-color: rgb(36, 24, 24);
     border: 2px solid rgb(117, 110, 110);

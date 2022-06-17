@@ -11,20 +11,20 @@
 
 <body>
     <header>
-        <a href="#" class="btn-abrir" onclick="abrirMenu()">&#9776;Abrir</a>
+        <a href="#" class="btn-abrir" onclick="abrirMenu()">&#9776;Open</a>
     </header>
     <nav id="menu">
-        <a href="#"onclick='fechaMenu()'>&times;Fechar</a>
-        <a href="/templates/loja.html">Lojas</a>
-        <a href="#">Sobre</a>
-        <a href="#">Contato</a>
-        <a href="#">Youtube</a>
+        <a href="#"onclick='fechaMenu()'>&times;Close</a>
+        <a href="/">Register Client</a>
+        <a href="#">Consult Data</a>
+        <a href="#">Downloads</a>
+        <a href="#">Creator</a>
 
     </nav>
 
      <div class="container-sm">
             <main id="conteudo">   
-            <h1>Create PDF</h1>
+            <h1>Register Client</h1>
             <hr>
 
             {% set mensagens = get_flashed_messages() %}
@@ -40,44 +40,50 @@
             <form class="row g-3" action="cadastrar" method="POST">
 
               <div class="col-md-2">
-                <input type="text" class="form-control" placeholder="Código" name="codigo" id="codigo">
+                <input type="number" required="required" step="1" min="1" class="form-control" placeholder="Código" name="codigo" id="codigo">
               </div>
 
               <div class="col-md-10">
-                <input type="text" class="form-control" placeholder="Nome" name="nome" id="nome">
+                <input type="text" required="required" pattern="[a-zA-Z\s]+$" class="form-control"  placeholder="Nome" name="nome" id="nome">
               </div>
 
               <div class="col-md-10">
-                <input type="text" class="form-control" placeholder="Endereço" name="endereço" id="endereço">
+                <input type="text" required="required" pattern="[a-zA-Z\s]+$"  class="form-control" placeholder="Endereço" name="endereço" id="endereço">
               </div>
 
               
               <div class="col-md-2">
-                <input type="text" class="form-control" placeholder="Número" name="numero" id="numero">
+                <input type="number" required="required" step="1" min="1" class="form-control" placeholder="Número" name="numero" id="numero">
               </div>
               
               <div class="col-md-2">
-                <input type="text" class="form-control" placeholder="Complemento" name="complemento" id="complemento">
+                <input type="text" required="required" pattern="[a-zA-Z\s]+$"  class="form-control" placeholder="Complemento" name="complemento" id="complemento">
               </div>
 
               <div class="col-md-2">
-                <input type="text" class="form-control" placeholder="Bairro" name="bairro" id="bairro">
+                <input type="text" required="required" pattern="[a-zA-Z\s]+$"  class="form-control" placeholder="Bairro" name="bairro" id="bairro">
               </div>
 
               <div class="col-md-2">
-                <input type="text" class="form-control" placeholder="Cidade" name="cidade" id="cidade">
+                <input type="text" required="required" pattern="[a-zA-Z\s]+$"  class="form-control" placeholder="Cidade" name="cidade" id="cidade">
               </div>
 
               <div class="col-md-2">
-                <input type="text" class="form-control" placeholder="CEP" name="CEP" id="CEP">
+                <input type="text" required="required" pattern="[a-zA-Z\s]+$"  class="form-control" placeholder="Estado Ex: SP" name="estado" id="estado">
               </div>
 
-                <button type="submit" class="btn btn-primary">Cadrastra</button>
-              </form>
+              <div class="col-md-2">
+                <input type="number" required="required" step="1" min="1" class="form-control" placeholder="CEP" name="CEP" id="CEP">
+              </div>
+            
+            
+              <button type="submit" class="btn btn-primary">Cadrastrar</button>
               
+              <a href="/static/pdf/site_teste6.pdf" download="teste.pdf" class="btn btn-primary">Download pdf</a>
+            </form>
 
             <hr>
-            <h1>Create PDF </h1>
+            <h1>Register Client</h1>
             <table class="table">
                 <tr>
                     <th scope="col">Codigo</th>
@@ -87,8 +93,10 @@
                     <th scope="col">Complemento</th>
                     <th scope="col">Bairro</th>
                     <th scope="col">Cidade</th>
+                    <th scope="col">Estado</th>
                     <th scope="col">CEP</th>
-                    <th scope="col">Ações</th>
+                    <th scope="col">Deletar</th>
+                    <th scope="col">Atualizar</th>
                     
                 </tr>
                 {% for item in result %}
@@ -100,9 +108,10 @@
                     <td>{{item.complemento}}</td>
                     <td>{{item.bairro}}</td>
                     <td>{{item.cidade}}</td>
+                    <td>{{item.estado}}</td>
                     <td>{{item.CEP}}</td>
-                    <td><a class="btn btn-danger" href="/deletar/{{item['codigo']}}">Deletar</a></td>
-                  <td><a class="btn btn-success" href="/atualizar/{{item['codigo']}}">Atualizar</a></td>
+                    <td ><a class="btn btn-danger" href="/deletar/{{item['codigo']}}">Deletar</a></td>
+                    <td><a class="btn btn-success" href="/atualizar/{{item['codigo']}}">Atualizar</a></td>
                 </tr>
                 {% endfor %} 
             </table>

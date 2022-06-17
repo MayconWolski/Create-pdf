@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Create PDF</title>
+    <link rel="stylesheet" type="text/css" href="/static/etiqueta_style.css">
+    <script type="text/javascript" src="/static/index_style.js"> </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+</head>
+
+<body>
+    
+    {% for item in result %}
+
+    <div class="teste">
+    <ol>
+        <li style="visibility: hidden">0</li>
+        <li>Codigo: {{item.codigo}}</li>
+        <li>Nome: {{item.nome}}</li>
+        <li>Endereço: {{item.endereço}}</li>
+        <li>Número: {{item.numero}}</li>
+        <li>Complemento: {{item.complemento}}</li>
+        <li>Bairro: {{item.bairro}}</li>
+        <li>Cidade: {{item.cidade}}</li>
+        <li>Estado: {{item.esatdo}}</li>
+        <li>CEP: {{item.CEP}}</li>
+    </ol>
+    </div>
+
+    {% endfor %} 
+            
+</body>
+</html>

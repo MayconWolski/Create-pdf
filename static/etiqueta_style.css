@@ -1,0 +1,22 @@
+
+.table{
+    text-align: center
+}
+
+.teste{
+    background-color: rgb(36, 24, 24);
+    border: 2px solid rgb(117, 110, 110);
+    color: white;
+    margin: 5px;
+    width: 250px;
+    display:inline-block;
+    border-radius: 20px;
+
+}
+
+ol{
+    list-style-type: none;
+    font-size: 10px;
+    
+}
+

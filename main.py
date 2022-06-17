@@ -1,9 +1,8 @@
-from http import client
 from banco import Client
 from flask import Flask, flash, redirect, render_template
 import pandas as pd
 from flask.globals import request
-from connect import deleteCode, insert, query_data, search_data, show_all, updade_client
+from connect import deleteCode, download_pdf, insert, query_data, search_data, show_all, updade_client
 
 
 app = Flask(__name__)
@@ -17,7 +16,7 @@ def Inicio():
 @app.route('/teste')
 def Inicio2():
     result = show_all()
-    return render_template('etiqueta.html', result=result)     
+    return render_template('tag_client.html', result=result)     
 
 @app.route('/cadastrar', methods=["POST", 'GET'])
 def cadrastrar():
@@ -30,9 +29,11 @@ def cadrastrar():
         complemento = request.form['complemento']
         bairro = request.form['bairro']
         cidade = request.form['cidade']
+        estado = request.form['estado']
         CEP = request.form['CEP']
-        loja = Client(codigo, nome, endereço, numero, complemento, bairro, cidade, CEP)
-        insert(loja)
+        client = Client(codigo, nome, endereço, numero, complemento, bairro, cidade, estado, CEP)
+        insert(client)
+        result = download_pdf()
         return redirect("/")
     elif consulta=="codigo erro":
         flash ("Codigo ja registrado ")
@@ -59,8 +60,9 @@ def atualizar(codigo):
         complemento = request.form['complemento']
         bairro = request.form['bairro']
         cidade = request.form['cidade']
+        estado = request.form['estado']
         CEP = request.form['CEP']
-        index_update = Client(codigo, nome, endereço, numero, complemento, bairro, cidade, CEP)
+        index_update = Client(codigo, nome, endereço, numero, complemento, bairro, cidade, estado, CEP)
         try:
             updade_client(codigo, index_update)
             return redirect('/')
