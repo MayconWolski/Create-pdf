@@ -1,0 +1,85 @@
+body {
+   
+    margin: 0px;
+    background-image: url(/static/Imagens/FundoHome.jpg);
+    background-size: 100%;
+    color: white;
+    
+    font-family: sans-serif ;
+    line-height: 1.5;
+   
+}
+
+a{
+    text-decoration: none;
+}
+
+header{
+    background-color: rgb(21,4,98);
+    padding: 10px;
+}
+
+.btn-abrir{
+    color: white;
+    font-size: 25px;
+}
+
+nav{
+    height: 100%;
+    width: 0px;
+    background-color: rgb(21,4,98);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+nav a{
+    color: white;
+        font-size: 25px;
+    display: block;
+    padding: 12px 10px 12px 32px;
+    
+
+}
+
+nav a:hover{
+    color: rgb(21,4,98);
+    background-color: white;
+
+
+}
+
+main {
+    
+    background: #dbf0d6b3;
+    display: block;
+    padding: 20px 20px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    color: black;
+    
+}
+
+.teste{
+    background-color: rgb(36, 24, 24);
+    border: 2px solid rgb(117, 110, 110);
+    color: white;
+    margin: 5px;
+    width: 250px;
+    display:inline-block;
+    border-radius: 20px;
+    
+    
+    
+}
+
+ol{
+    list-style-type: none;
+    font-size: 10px;
+    
+}
+
